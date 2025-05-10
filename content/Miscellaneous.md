@@ -7,10 +7,13 @@ tags:
 - - -
 
 <h1 align="center">Point to Plane Distance Formula</h1>
+
 Consider point $p \in \mathbb{R}^3$ where $p = (p_{x},p_{y},p_{z})$ and a plane, $X$ of the form $ax+by+zc=0$
 
 We know the vector $\vec{d} =\begin{pmatrix} a & b & c \end{pmatrix}^T$ is orthogonal to all points along $X$.
+
 We also know that $p$  intersects with some $\vec{d} \cdot \delta$ when we scale $\vec {d}$ enough
+
 We also know that if we considered $p$ to be represented as a vector, $\vec{p} = \begin{pmatrix} p_{x} & p_{y} & p_{z} \end{pmatrix}^T$
 
 We can make use of the Pythagorean Theorem to consider $\vec{p}$ the hypotenuse, and the vector $\vec{d} \cdot \delta$ orthogonal to plane $X$ as another side of the triangle, and the last vector parallel to $X$. 
