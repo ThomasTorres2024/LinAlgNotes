@@ -1,7 +1,13 @@
+---
+title: Etc Idk
+draft: 
+tags:
+---
+
 - - -
 
 <h1 align="center">Point to Plane Distance Formula</h1>
-Consider point $ p \in \mathbb{R}^3 $ where $ p = (p_{x},p_{y},p_{z})$ and a plane, $X$ of the form $ax+by+zc=0$
+Consider point $p \in \mathbb{R}^3$ where $p = (p_{x},p_{y},p_{z})$ and a plane, $X$ of the form $ax+by+zc=0$
 
 We know the vector $\vec{d} =\begin{pmatrix} a & b & c \end{pmatrix}^T$ is orthogonal to all points along $X$.
 We also know that $p$  intersects with some $\vec{d} \cdot \delta$ when we scale $\vec {d}$ enough
