@@ -1,15 +1,7 @@
-
----
-title: Example Title
-draft: false
-tags:
-  - example-tag
----
- 
-The rest of your content lives here. You can use **Markdown** here :)
+- - -
 
 <h1 align="center">Point to Plane Distance Formula</h1>
-Consider point $p \in \mathbb{R}^3$ where $p = (p_{x},p_{y},p_{z})$ and a plane, $X$ of the form $ax+by+zc=0$
+Consider point $ p \in \mathbb{R}^3 $ where $ p = (p_{x},p_{y},p_{z})$ and a plane, $X$ of the form $ax+by+zc=0$
 
 We know the vector $\vec{d} =\begin{pmatrix} a & b & c \end{pmatrix}^T$ is orthogonal to all points along $X$.
 We also know that $p$  intersects with some $\vec{d} \cdot \delta$ when we scale $\vec {d}$ enough
@@ -28,11 +20,6 @@ Note this is true iff our plane, $X$ passes through the origin, otherwise we wou
 
 Also we must make the numerator positive if $\delta$ measures distance and not merely the amount we are scaling $\vec{d}$ by, so our final result is thus:
 
-$$\dfrac{p_{x}a + p_{y}b+p_{z}c +h}{\sqrt{a^2+b^2+c^2}}$$
+$$\dfrac{|p_{x}a + p_{y}b+p_{z}c +h|}{\sqrt{a^2+b^2+c^2}}$$
 
 - - -
-
-
-
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
