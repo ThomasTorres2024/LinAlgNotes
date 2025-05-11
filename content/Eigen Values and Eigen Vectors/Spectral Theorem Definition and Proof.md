@@ -10,10 +10,11 @@ The spectral theorem states that for all Hermitian Matrices, that is for matrice
 2.  Eigenvectors corresponding to distinct eigen values in $A$ are orthogonal 
 3. $A$ is orthogonally diagonalizable
 - - - 
-<h3 align="center">Proof that Eigen Values are Real for Symmetric Matrix A$</h3>
+<h3 align="center">Proof that Eigen Values are Real for Symmetric Matrix A</h3>
 Given that $\lambda$ is an eigen value of $A$ and that $\vec{v}$ is a corresponding eigen vector $\lambda$ , we want to show that $\lambda = \overline{\lambda}$, that $\lambda \not \in \mathbb{C}$.  Suppose that $\lambda \in \mathbb{C}$.
 
 Begin with the original identity, and apply the Transpose operator. Then right multiply everything by $\overline{\vec{v}}$.
+
 $$A \vec{v} = \lambda \vec{v} \Longleftrightarrow (A\vec{v})^T = (\lambda \vec{v})^T \Longleftrightarrow \vec{v}^TA^T = \overline{\lambda} \vec{v}^T \Longleftrightarrow \vec{v}^TA = \lambda \vec{v}^T $$
 $$\begin{equation}\tag{1} v^TA \overline{v}^ = \lambda v^T \overline{v} \end{equation}$$
 We will consider what happens when we apply the conjugate of both sides of $A \vec{v} = \lambda \vec{v}$, which in turn results in $A \overline{{v}} = \overline{\lambda v}$. A remains $A$ as we know $A \in \mathbb{R}^{n \times n}$ and its conjugate is simply itself.
@@ -28,7 +29,7 @@ $$\lambda v^T \overline{v} = \overline{\lambda} v^T \overline{v} \Longleftrighta
 Since $\lambda = \overline{\lambda}$ it follows that $\lambda \in \mathbb{R}$
 
  - - - 
-$$\LARGE \text{Proof that the eigen vectors of A form a basis of } \mathbb{R}^n $$
+$$\Large \text{Proof that the eigen vectors of A form a basis of } \mathbb{R}^n $$
   For symmetric matrices $A$, $\exists$ an orthogonal matrix $R$ such that $R^{-1}AR$ is diagonal. 
 Let $\lambda \in \mathbb{R}$ and is an eigen value of $A$ with corresponding eigen vector $\vec{v}_{1}$. Consider $\vec{v}_{1}$ which is normalized. 
 
