@@ -5,6 +5,8 @@ tags:
 ---
 - - -
 <h3 align="center">Spectral Theorem Definition </h3>
+- - -
+
 The spectral theorem states that for all Hermitian Matrices where $A \in \mathbb{R}^{n \times n}$:
 
 1.  $A$ has real eigen values
