@@ -20,9 +20,7 @@ $$\begin{equation}\tag{1} v^TA \overline{v}^ = \lambda v^T \overline{v} \end{equ
 We will consider what happens when we apply the conjugate of both sides of $A \vec{v} = \lambda \vec{v}$, which in turn results in $A \overline{{v}} = \overline{\lambda v}$. A remains $A$ as we know $A \in \mathbb{R}^{n \times n}$ and its conjugate is simply itself.
 
 Substituting:
-$$\begin{equation}\tag{2} v^TA \overline{v} = v^T \overline{\lambda v} = \overline{\lambda} v^T \overline{v} 
-\end{equation}
-$$
+$$\begin{equation}\tag{2} v^TA \overline{v} = v^T \overline{\lambda v} = \overline{\lambda} v^T \overline{v} \end{equation}$$
 Note that $\vec{v} \neq \vec{0}$ since $\vec{v}$ is an eigen vector, and eigen vectors are by definition non-zero.
 Notice that both $(1)$ and $(2)$ are equivalent so we can write that: 
 $$\lambda v^T \overline{v} = \overline{\lambda} v^T \overline{v} \Longleftrightarrow \lambda<v,v> = \overline{\lambda}<v,v> \Longleftrightarrow \lambda = \overline{\lambda} $$
