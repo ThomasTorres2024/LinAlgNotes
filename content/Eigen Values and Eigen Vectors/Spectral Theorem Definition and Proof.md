@@ -5,10 +5,13 @@ tags:
 ---
 - - -
 <h3 align="center">Spectral Theorem Definition </h3>
-The spectral theorem states that for all Hermitian Matrices, that is for matrices where $A \in \mathbb{R}^{n \times n}$ and  $A^H=A$ that:
+The spectral theorem states that for all Hermitian Matrices where $A \in \mathbb{R}^{n \times n}$:
+
 1.  $A$ has real eigen values
 2.  Eigenvectors corresponding to distinct eigen values in $A$ are orthogonal 
 3. $A$ is orthogonally diagonalizable
+
+
 - - - 
 <h3 align="center">Proof that Eigen Values are Real for Symmetric Matrix A</h3>
 Given that $\lambda$ is an eigen value of $A$ and that $\vec{v}$ is a corresponding eigen vector $\lambda$ , we want to show that $\lambda = \overline{\lambda}$, that $\lambda \not \in \mathbb{C}$.  Suppose that $\lambda \in \mathbb{C}$.
