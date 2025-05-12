@@ -5,7 +5,6 @@ tags:
 ---
 - - -
 <h3 align="center">Spectral Theorem Definition </h3>
-- - -
 
 The spectral theorem states that for all Hermitian Matrices where $A \in \mathbb{R}^{n \times n}$:
 
@@ -18,14 +17,24 @@ The spectral theorem states that for all Hermitian Matrices where $A \in \mathbb
 
 Given that $\lambda$ is an eigen value of $A$ and that $\vec{v}$ is a corresponding eigen vector $\lambda$ , we want to show that $\lambda = \overline{\lambda}$, that $\lambda \not \in \mathbb{C}$.  Suppose that $\lambda \in \mathbb{C}$.
 
-Begin with the original identity, and apply the Transpose operator. Then right multiply everything by $\overline{\vec{v}}$.
+Begin with the original identity, and apply the Transpose operator. Then right multiply everything by $\overline{\vec{v}}$
 
-$$A \vec{v} = \lambda \vec{v} \Longleftrightarrow (A\vec{v})^T = (\lambda \vec{v})^T \Longleftrightarrow \vec{v}^TA^T = \overline{\lambda} \vec{v}^T \Longleftrightarrow \vec{v}^TA = \lambda \vec{v}^T $$
-$$\begin{equation}\tag{1} v^TA \overline{v}^ = \lambda v^T \overline{v} \end{equation}$$
+$$A \vec{v} = \lambda \vec{v}$$ 
+
+$$\Longleftrightarrow (A\vec{v})^T = (\lambda \vec{v})^T$$ 
+
+$$\Longleftrightarrow \vec{v}^TA^T = \overline{\lambda} \vec{v}^T$$ 
+
+$$\Longleftrightarrow \vec{v}^TA = \lambda \vec{v}^T $$
+
+$$\Longleftrightarrow v^TA \overline{v} = \lambda v^T \overline{v} $$
+
 We will consider what happens when we apply the conjugate of both sides of $A \vec{v} = \lambda \vec{v}$, which in turn results in $A \overline{{v}} = \overline{\lambda v}$. A remains $A$ as we know $A \in \mathbb{R}^{n \times n}$ and its conjugate is simply itself.
 
 Substituting:
-$$\begin{equation}\tag{2} v^TA \overline{v} = v^T \overline{\lambda v} = \overline{\lambda} v^T \overline{v} \end{equation}$$
+
+$$ v^TA \overline{v} = v^T \overline{\lambda v} = \overline{\lambda} v^T \overline{v} $$
+
 Note that $\vec{v} \neq \vec{0}$ since $\vec{v}$ is an eigen vector, and eigen vectors are by definition non-zero.
 Notice that both $(1)$ and $(2)$ are equivalent so we can write that: 
 $$\lambda v^T \overline{v} = \overline{\lambda} v^T \overline{v} \Longleftrightarrow \lambda<v,v> = \overline{\lambda}<v,v> \Longleftrightarrow \lambda = \overline{\lambda} $$
@@ -33,7 +42,10 @@ Since $\lambda = \overline{\lambda}$ it follows that $\lambda \in \mathbb{R}$
 
  - - - 
 $$\Large \text{Proof that the eigen vectors of A form a basis of } \mathbb{R}^n $$
-  For symmetric matrices $A$, $\exists$ an orthogonal matrix $R$ such that $R^{-1}AR$ is diagonal. 
+
+Skibidi Toilet
+
+For symmetric matrices $A$, $\exists$ an orthogonal matrix $R$ such that $R^{-1}AR$ is diagonal. 
 Let $\lambda \in \mathbb{R}$ and is an eigen value of $A$ with corresponding eigen vector $\vec{v}_{1}$. Consider $\vec{v}_{1}$ which is normalized. 
 
 We wish to extend $\vec{v}_{1}$ to be extended to a basis of $\mathbb{R}^n$ which will make use of $\{ v_{1}, u_{2}, u_{3}, \dots , u_{n}  \}$ where we have a basis consisting of eigen values corresponding to each eigen value that are not normalized denoted by $u_{k}$. We will then run the Gram-Schmidt process on this basis to force orthonormality.
