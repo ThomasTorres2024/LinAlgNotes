@@ -43,8 +43,6 @@ Since $\lambda = \overline{\lambda}$ it follows that $\lambda \in \mathbb{R}$
  - - - 
 $$\Large \text{Proof that the eigen vectors of A form a basis of } \mathbb{R}^n $$
 
-Skibidi Toilet
-
 For symmetric matrices $A$, $\exists$ an orthogonal matrix $R$ such that $R^{-1}AR$ is diagonal. 
 Let $\lambda \in \mathbb{R}$ and is an eigen value of $A$ with corresponding eigen vector $\vec{v}_{1}$. Consider $\vec{v}_{1}$ which is normalized. 
 
