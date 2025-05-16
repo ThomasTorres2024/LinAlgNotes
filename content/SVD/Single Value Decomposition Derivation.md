@@ -14,6 +14,17 @@ If $A$ is symmetric positive definite, $A$ has a much simpler SVD:
 $$A=Q \wedge Q^T$$
 where $Q, \wedge \in \mathbb{R}^{n \times n}$ and $Q$ is orthogonal. 
 - - -
+### Intuition
+
+Let us consider $A\vec{x}= U \Sigma V^T \vec{x}$ to get a better grasp of this factorization's intuition. We can think of our $V^T\vec{x}$ as a rotation or some kind of reflection which does NOT modify the magnitude of $\vec{x}$.
+
+The matrix $\Sigma$ scales our $V^T \vec{x}$ by some amount, modifying a circle, all possible position our $\vec{x}$ can go to during rotation, to an ellipse.
+
+Lastly, $U$ is another rotation to our vector. 
+
+If we are in the case where $A \in \mathbb{R}^2$, it follows that $U = \begin{bmatrix} \text{cos}(\theta) & -\text{sin}(\theta)\\ \text{sin}(\theta) & \text{cos}(\theta) \end{bmatrix}$ and that $V^T = \begin{bmatrix} \text{cos}(\phi) & -\text{sin}(\phi)\\ \text{sin}(\phi) & \text{cos}(\phi) \end{bmatrix}$, which is to say that both $U$ and $V^T$ are rotation matrices in $\mathbb{R}^2$
+
+- - -
 We can think of SVD as taking an orthonormal set $V$ and multiply it by matrix $A$ such that the result is another orthonormal set where each resulting value is scaled by the diagonal entries, $\sigma$ from the matrix $\Sigma$. 
 
 $$AV=U\Sigma$$
@@ -22,10 +33,12 @@ $$\Longleftrightarrow A \begin{bmatrix}  \vec{v_{1}} & \vec{v_{2}} & \dots & \ve
 
 $$\Longleftrightarrow A\begin{bmatrix} \vec{v_{1}} & \vec{v_{2}} & \dots & \vec{v_{m}}\\ \end{bmatrix} = \begin{bmatrix} \sigma_{1}\vec{u_{1}} & \sigma_{2}\vec{u_{2}} & \dots & \vec{\sigma_{3}u_{n}}  \end{bmatrix}$$
 
-If it turns out that $A$ is not full rank and instead only has dimension $r$ then the remaining $n-r$ vectors will consist of the basis of the null space. 
+If it turns out that $A$ is not full rank and instead only has dimension $r$ then the remaining $n-r$ vectors will consist of the basis of the null space.  We need this to maintain the orthogonality conditions of $V$ and $U$. 
 
+Note that after $\sigma_{r}$, where $A$ is a rank $r$ matrix, each $\sigma_{r+k}$ where $n-r \geq k>1$ is 0. So, it follows that $A \vec{v_{r+k}}=\vec{0}$
+ 
 - - -
-Our goal here is to make our vectors of $U$ disappear. We achieve this by left multiplying $A^T$.
+Our goal here is to make our vectors of $U$ disappear. We achieve this by left multiplying $A^T$. The matrices $A^TA$ and $AA^T$. These matrices are positive definite, and we can use them to solve for our values of $\sigma$. 
 
 Note that $A^TA$ is a symmetric positive definite matrix. 
 
@@ -47,8 +60,17 @@ Likewise the right multiplication of $AA^T$ results in:
 $$\Longleftrightarrow AA^T=U  \begin{bmatrix} \sigma_{1}^2\vec{e_{1}}& \sigma_{2}^2\vec{e_{2}} & \dots &\sigma_{n}^2\vec{e_{m}} \end{bmatrix} U^T$$
 
 $$\Longleftrightarrow AA^T=U\Sigma_{u}U^T$$
+We can also solve for the vectors $\vec{u_{k}}$ in $U$ by doing $\vec{u} = \dfrac{A \vec{v}}{ \sigma}$. We would like to verify that all of these vectors $\vec{u}$ are orthogonal. We can see the following:
+
+$$\vec{u}_{1}^T \vec{u}_{2}= \left( \dfrac{A\vec{v_{1}}}{\sigma_{1}} \right)^T\left( \dfrac{A\vec{v_{2}}}{\sigma_{2}} \right)=\left( \dfrac{\vec{v_{2}}^TA^TA\vec{v_{1}}}{\sigma_{1} \sigma_{2}} \right)=\left( \dfrac{\vec{v_{2}}^T\vec{v_{1} \sigma_{2}^2}}{\sigma_{1} \sigma_{2}} \right)=\left( \dfrac{\vec{v_{2}}^T\vec{v_{1} \sigma_{2}}}{\sigma_{1}} \right) = \vec{0}$$
+
+We know that each $\vec{v}$ in matrix $V$ is mutually orthogonal because $A^TA$ is unitarily diagonalizable, and furthermore $A^TA\vec{v} = \sigma^2 \vec{v}$ because $\vec{v}$ are the eigen vectors of $V$.
+- - -
+### Computational Considerations
+$A^TA$ is a matrix we are NOT interested in, expending a lot of power to calculate it is foolish, it is also extremely large and will take a lot of effort to compute computationally. Computational methods for this are quite different. 
 
 - - -
+  
 ## Example
 $$A=\begin{bmatrix} 4 & 4\\ -3 & 3 \end{bmatrix}$$
 
@@ -92,5 +114,3 @@ $$U = \begin{bmatrix} 1&0\\0 & 1 \end{bmatrix}$$
 $$\Sigma = \begin{bmatrix} \sqrt{32} & 0\\ 0 & \sqrt{18}\end{bmatrix}$$
 
 $$V^T = \begin{bmatrix} \sqrt{2} & \sqrt{2} \\ \sqrt{2} & -\sqrt{2} \end{bmatrix}$$
----
-## Example 2, $A$ is rank 1
