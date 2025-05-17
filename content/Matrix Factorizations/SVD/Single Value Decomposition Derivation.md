@@ -70,7 +70,19 @@ We know that each $\vec{v}$ in matrix $V$ is mutually orthogonal because $A^TA$ 
 $A^TA$ is a matrix we are NOT interested in, expending a lot of power to calculate it is foolish, it is also extremely large and will take a lot of effort to compute computationally. Computational methods for this are quite different. 
 
 - - -
-  
+## Properties
+
+We can approximate $A$ through the sum of rank 1 matrices. Using SVD, we can write the sum of $A$ as the following
+
+$$A=U \Sigma V^T = \sum_{i=1}^{n} \sigma_{i} \vec{u_{i}} \vec{v}_{i}^T$$
+Where $\sigma_{i}= \Sigma_{ii}, \vec{u_{i}}$ is the $i$th vector of $U$, and $\vec{v_{i}}^T$ is the $i$ th vector of $V$ transposed. 
+
+Let us say that the $\sigma$ values in our $\Sigma$ are ordered, since SVD is not unique. Let us suppose that they are ordered from greatest to least. Because of this, the last $\sigma$ values will be smaller than the initial ones. 
+
+If our last $\sigma$ values are negligibly small, then we can approximate our $A$ by not considering these smaller values. 
+
+- - -
+
 ## Example
 $$A=\begin{bmatrix} 4 & 4\\ -3 & 3 \end{bmatrix}$$
 
