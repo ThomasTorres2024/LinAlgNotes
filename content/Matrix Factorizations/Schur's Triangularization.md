@@ -66,6 +66,7 @@ $$U^HAU=\left[
 V_{2}^HA\vec{v_{1}} & V_{2}^HAV_{2}
 \end{array}
 \right]$$
+
 We know that $A \vec{v_{1}} = \lambda_{1} \vec{v_{1}}$ so $\vec{v_{1}}^H A \vec{v_{1}} = \lambda_{1}<\vec{v_{1}},\vec{v_{1}}> = \lambda_{1}$. 
 
 Note also that since $V$ is an orthogonal matrix, by definition all $<\vec{v_{i}},\vec{v_{j}}>=0$ when $i \neq j$. So, $V_{2}^HA\vec{v_{1}}$ = 0.
@@ -86,6 +87,7 @@ V_{2}^HA\vec{v_{1}} & V_{2}^HAV_{2}
 \end{array}
 \right]$$
 
+
 This matrix is nearly triangular, but notice that we can express it as a product of matrices which turns out to be of a triangular form: 
 
 $$\left[
@@ -101,6 +103,7 @@ $$\left[
 0 & T_{A_{2}}
 \end{array}
 \right] \begin{bmatrix} 1 & 0\\0 & U_{2}^H \end{bmatrix} $$
+
 From this expression we can clearly see that the matrix in the center is an upper triangular matrix, and the matrices on the sides are both orthogonal. We see that the inductive hypothesis holds for $n$. In turn, we have obtained the result that $A$ can indeed be factored into a corresponding $UT_{A}U^H$
 
 In turn, all entries of $T_{A}$ are the eigenvalues of $A$. 
@@ -110,8 +113,64 @@ In turn, all entries of $T_{A}$ are the eigenvalues of $A$.
 
 For any $A \in \mathbb{C}^{n  \times n}$ we can obtain the following results: 
 
-1. $\text{tr}(A)= \sum_{i=1}^n$
+1. $\text{tr}(A)= \sum_{i=1}^n \lambda_{i}$
+$$\text{tr}(A)=\text{tr}(U^HT_{A}U)=\text{tr}(U^HUT_{A})=\text{tr}(T_{A})=\sum_{i=1}^n \lambda_{i}$$
 
 
 
+2. $\text{det}(A)= \prod_{i=1}^n \lambda_{i}$
+$$\text{det}(A)= \text{det}(U^HT_{A}U)= \text{det}(U^H) \cdot \text{det}(T_{A}) \cdot \text{det}(U) = \text{det}(T_{A})= \prod_{i=1}^n \lambda_{i}$$
 
+- - -
+# 3. Cayley Hamilton Theorem
+
+The proof for this corollary is more involved than the other two.
+
+If $P_{A}(\lambda)$ is the characteristic polynomial of $A$, then $P_{A}(A)=0$. 
+
+$$P_{A}(A)=P_{A}(UT_{A}U^H)= P_{A}(\lambda I_{n}-UT_{A}U^H) = P_{A}(\lambda U U^H-UT_{A}U^H)=P_{A}(U(\lambda I_{n}-T_{A})U^H)$$
+
+$$= \prod _{i=1}^n U\left(\lambda I_{n}-T_{A}  \right)U^H= U \left( \prod _{i=1}^n \left(\lambda I_{n}-T_{A}  \right) \right)U^H =U P_{A}(T_{A})U^H$$
+
+If we show that $P_{T_{A}}(T_{A})$ is 0, then it follows that $P_{A}(A)$ is 0 since $U(0_{n \times n}) U^H$ is 0. 
+
+We can inductively argue that $P_{A}(T_{A}) = 0_{n \times n}$:
+
+$$P_{T_{A}}(T_{A})=\begin{bmatrix} 0 & * & * & \dots & *
+\\0 & * & * &\dots & * \\
+0  & 0 & * & \dots   & *\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+0 & 0 & 0 & 0 & *\end{bmatrix} \cdot \begin{bmatrix} * & * & * & \dots & *
+\\0 & 0 & * &\dots & * \\
+0  & 0 & * & \dots   & *\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+0 & 0 & 0 & 0 & *\end{bmatrix} \cdot \begin{bmatrix} * & * & * & \dots & *
+\\0 & * & * &\dots & * \\
+0  & 0 & 0 & \dots   & *\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+0 & 0 & 0 & 0 & *\end{bmatrix}  \dots  \begin{bmatrix} 0 & * & * & \dots & *
+\\0 & * & * &\dots & * \\
+0  & 0 & * & \dots   & *\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+0 & 0 & 0 & 0 & *\end{bmatrix}$$
+
+We can proceed with a formal proof of this statement using induction, however I will not go about this. Each zero column in the product of the above matrices will result in a new column of zeroes, which will eventually yield another zero matrix. Eventually, we would be able to see that $P_{T_{A}}(T_{A})=0_{n \times n}$
+
+In conclusion it follows that $P_{T_{A}}(T_{A}) = 0_{n \times n}$, so $P_{A}(A)=U P_{T_{A}}(T_{A}) U^H = 0_{n \times n}$. In conclusion it follows that plugging a matrix into its own characteristic equation yields the zero matrix. 
+
+This theorem allows us to express $A$ as a linear combination of powers of itself, for instance: 
+
+$$A=a_{n}A^n+a_{n-1}A^{n-1}+\dots+a_{2}A^{2}+a_{1}A^1+a_{0}I_{n}$$
+As an example consider: 
+
+$$A=\begin{bmatrix}1 & 2\\ -2 & 1 \end{bmatrix}$$
+
+$$P_{A}(\lambda)= (1-\lambda)^2+4=\lambda^2-2\lambda+5$$
+Now we will compute $P_{A}(A):$
+$$A^2 -2A+5I_{2}= \begin{bmatrix}-3 & 4\\-4 & -3 \end{bmatrix} -2\begin{bmatrix}1 & 2\\-2 & 1 \end{bmatrix} + 5\begin{bmatrix}1 & 0\\0 & 1 \end{bmatrix} = \begin{bmatrix}0 & 0\\0 & 0 \end{bmatrix}$$
+
+We can also use the Caley Hamilton Theorem to compute the inverse of a matrix. In the above example consider: 
+
+$$P_{A}(A)=A^2-2A+5I_{2}=0 \Longleftrightarrow I_{2}=\frac{1}{5} (-A^2+2A)=A \left(\frac{-1}{5}A+\frac{2}{5}I_{2} \right)$$
+
+Since $I_{2}=A \left(\frac{-1}{5}A+\frac{2}{5}I_{2} \right) \Longleftrightarrow A^{-1} = \left(\frac{-1}{5}A+\frac{2}{5}I_{2} \right)$
