@@ -174,3 +174,5 @@ We can also use the Caley Hamilton Theorem to compute the inverse of a matrix. I
 $$P_{A}(A)=A^2-2A+5I_{2}=0 \Longleftrightarrow I_{2}=\frac{1}{5} (-A^2+2A)=A \left(\frac{-1}{5}A+\frac{2}{5}I_{2} \right)$$
 
 Since $I_{2}=A \left(\frac{-1}{5}A+\frac{2}{5}I_{2} \right) \Longleftrightarrow A^{-1} = \left(\frac{-1}{5}A+\frac{2}{5}I_{2} \right)$
+
+Lastly, an important class of numerical methods for approximating eigen values and $\vec{x}$ in $A\vec{x}=\vec{b}$ come out of the Cayley-Hamilton theory. These methods are known are Krylov methods. 

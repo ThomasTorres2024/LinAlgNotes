@@ -4,7 +4,9 @@ draft:
 tags:
 ---
 - - -
-<h3 align="center">Spectral Theorem Definition </h3>
+# Spectral Theorem Definition 
+
+Note that I included a proof for this under special matrices as well, and the proof is different. 
 
 The spectral theorem states that for all Hermitian Matrices where $A \in \mathbb{R}^{n \times n}$:
 
@@ -40,8 +42,41 @@ Notice that both $(1)$ and $(2)$ are equivalent so we can write that:
 $$\lambda v^T \overline{v} = \overline{\lambda} v^T \overline{v} \Longleftrightarrow \lambda<v,v> = \overline{\lambda}<v,v> \Longleftrightarrow \lambda = \overline{\lambda} $$
 Since $\lambda = \overline{\lambda}$ it follows that $\lambda \in \mathbb{R}$
 
- - - - 
-$$\Large \text{Proof that the eigen vectors of A form a basis of } \mathbb{R}^n $$
+---
+# Proof Of Spectral Theorem for Hermitian Matrices
+
+Consider the Hermitian matrix $A$. By Schur's Triangularization, it follows that: 
+
+$$A=UDU^T=A^H=UD^HU^T$$
+$$D=D^H$$
+
+Where $U,D \in \mathbb{R}^{n \times n}$, and $U$ is orthogonal and $D$ is an upper triangular matrix. 
+
+Since $D=D^H$, it follows that $D$ is both upper triangular and lower triangular, so in actuality $D$ is diagonal. Furthermore, since $D=D^H \implies D_{ii}= \bar{D_{ii}}^H$, which is to say that each entry of the diagonal matrix must be real. 
+
+Since each diagonal entry is an eigen-value, this means the eigen values of $D$ are necessarily real. 
+
+Lastly we can show that eigen vectors are orthogonal easily. Consider $\vec{x},\vec{y} \in R^{n}$ that are both distinct eigen-vectors with eigen values $\lambda,\mu$ respectively such that $\lambda \neq \mu$. It follows then that:
+
+$$A\vec{x}=\lambda \vec{x}$$
+
+$$\vec{x}^HA^H=\lambda\vec{x}^H$$
+
+$$\vec{x}^HA \vec{y}=\lambda\vec{x}^H\vec{y}$$
+
+$$\mu \vec{x}^H\vec{y}=\lambda\vec{x}^H\vec{y}$$
+
+$$\mu \vec{x}^H\vec{y}-\lambda\vec{x}^H\vec{y}=0$$
+
+$$(\mu-\lambda)\vec{x}^H\vec{y}=0$$
+
+$$\vec{x}^H\vec{y}=<\vec{x},\vec{y}>=0$$
+
+In conclusion, the inner product between any eigen vectors corresponding to distinct eigen values is 0, thus the two vectors are orthogonal.
+
+$\therefore$ for any Hermitian matrix $A$, it follows its eigen values are real, it is unitarily diagonalizable, and has orthogonal eigen vectors corresponding to distinct eigen values.
+  - - - 
+# Proof that the eigen vectors of A form a basis of $\mathbb{R}^n$
 
 For symmetric matrices $A$, $\exists$ an orthogonal matrix $R$ such that $R^{-1}AR$ is diagonal. 
 Let $\lambda \in \mathbb{R}$ and is an eigen value of $A$ with corresponding eigen vector $\vec{v}_{1}$. Consider $\vec{v}_{1}$ which is normalized. 
