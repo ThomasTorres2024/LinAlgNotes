@@ -3,7 +3,7 @@ title: Normal Matrices
 draft: "false"
 tags:
 ---
-# Normal Matrices 
+# Normal Matrices and Spectral Theorem Proof 
 
 A normal matrix, $A \in \mathbb{C}^{n \times n}$ is normal if $A^HA=AA^H$. 
 
@@ -17,9 +17,13 @@ If $A$ is Skew-Hermitian then $A^H=-A$ so $A^HA=-A^2$ and $AA^H=-A^2 \implies AA
 
 If $A$ is Diagonal then $A^H=A$, so $A$ is Hermitian, so $A$ is normal
 
+The total class of normal matrices is NOT limited to the aforementioned special types of matrices. Any matrix that satisfies the definition of normal is simply normal. 
+
 ---
 
 # Complex Spectral Decomposition 
+
+We will prove that any matrix $A \in \mathbb{C}^{n \times n}$ is unitarily diagonalizable. 
 
 Suppose $A \in \mathbb{C}^{n \times n}$ then exists a unitary matrix $U,D \in \mathbb{C}^{n\times n}$ where $U$ is orthogonal and $D$ is a diagonal matrix such that we can express $A$ as:
 
@@ -29,13 +33,13 @@ $\textbf{if and only if } A$ is normal.
 
 ## Proof 
 
-Case 1. If $A=UDU^H \implies A$ is normal:
+### Case 1. If $A=UDU^H \implies A$ is normal:
 
 $$AA^H=(UDU^H)(UDU^H)^H=UDU^HUD^HU^H=UD^HDU^H $$
 
 Due to commutativity of the complex numbers, it follows that:
 
-$$UD^HDU^H=U \cdot \begin{bmatrix} d_{11}d_{11} & 0 & 0 & \dots & 0\\ 0 &d_{22}\bar{d_{22}}  & 0 & \dots & 0\\
+$$ UD^HDU^H=U \cdot \begin{bmatrix} d_{11}\bar{d_{11}} & 0 & 0 & \dots & 0\\ 0 &d_{22}\bar{d_{22}}  & 0 & \dots & 0\\
 \vdots & \vdots & \ddots & \dots & \vdots\\
 0 & 0 & 0 & 0 &d_{nn}\bar{d_{nn}} 
 \end{bmatrix} \cdot U^H =  $$
@@ -46,7 +50,7 @@ $$U\begin{bmatrix} \bar{d_{11}}d_{11} & 0 & 0 & \dots & 0\\ 0 &\bar{d_{22}}d_{22
 
 If $A$ is unitarily diagonalizable, then $AA^H=A^HA$, so $A$ must be normal.
 
-Case 2. If $A$ is normal, then $\exists U,D \in \mathbb{C}^{n \times n}$ where $U$ is orthogonal and $D$ is a diagonal matrix 
+### Case 2. If $A$ is normal, then $\exists U,D \in \mathbb{C}^{n \times n}$ where $U$ is orthogonal and $D$ is a diagonal matrix 
 
 Via Schur's Triangularization we can state that $\exists U, T_{A} \in \mathbb{C}^{n \times n}$ such that 
 $$A = UT_{A}U^H$$
@@ -68,4 +72,4 @@ From this, the only values that are not guaranteed to be zero are the diagonal v
 
 Since $A$ is normal $\Longleftrightarrow A=UDU^H$ we can draw the following conclusions:
 * Normal matrices are unitarily diagonalizable, that is we can express any normal matrix as $UDU^H$
-* The eigen vectors of $A$ form an orthonormal basis. Since $UDU^H$ is a diagonalization of $A$ and a similarity transformation, it follows that $U$ consists of all eigen vectors of $A$, and furthermore that each vector in it must be normal since $U$ is an orthogonal matrix 
+* The eigen vectors of $A$ form an orthonormal basis of $\mathbb{R}^n$. Since $UDU^H$ is a diagonalization of $A$ and a similarity transformation, it follows that $U$ consists of all eigen vectors of $A$, and furthermore that each vector in it must be normal since $U$ is an orthogonal matrix 

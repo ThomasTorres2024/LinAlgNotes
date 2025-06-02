@@ -42,6 +42,16 @@ Notice that both $(1)$ and $(2)$ are equivalent so we can write that:
 $$\lambda v^T \overline{v} = \overline{\lambda} v^T \overline{v} \Longleftrightarrow \lambda<v,v> = \overline{\lambda}<v,v> \Longleftrightarrow \lambda = \overline{\lambda} $$
 Since $\lambda = \overline{\lambda}$ it follows that $\lambda \in \mathbb{R}$
 
+### Alternative Proof that Eigen Vectors of a Hermitian Matrix are Real 
+
+Consider the eigen value $\lambda$ with the associated eigen-vector $\vec{x}$ of the Hermitian matrix  $A\in \mathbb{C}^{n \times n}$. 
+
+It follows that: 
+
+$$\lambda \|\vec{x} \|^2=\lambda \vec{x}^H\vec{x}=\vec{x}^H\lambda\vec{x}=\vec{x}^HA\vec{x}=\vec{x}^HA^H\vec{x}=(A\vec{x})^H\vec{x}=\bar{\lambda}\vec{x}^H\vec{x}=\bar{\lambda}\| \vec{x} \|^2$$
+
+Since $\lambda = \bar{\lambda}$ it follows that $\lambda \in \mathbb{R}$
+
 ---
 # Proof Of Spectral Theorem for Hermitian Matrices
 
@@ -101,3 +111,38 @@ Thus, since each column of $B$ consists of $e_{k} \cdot \lambda_{k}$ it follows 
 We can prove this inductively using this line of argument but I will not put it here. 
 
 - - -
+
+# Real Spectral Theorem 
+
+The Real Spectral Theorem states that if $A \in \mathbb{R}^{n \times n}$ and $A=A^T \Longleftrightarrow$  $A=UDU^T$ where $U,D \in \mathbb{R}^{n \times n}$ and $U$ is orthogonal and $D$ is diagonal. 
+
+To put it in plain English,  the normal matrix $A$ has a real unitary diagonalization if and only if $A=A^T$ and $A \in \mathbb{R}^{n \times n}$.
+
+## Case 1: $U,D \in \mathbb{R}^{n \times n}\implies A\in \mathbb{R}^{n \times n} \text{ and } A^T=A$
+
+$$A=UDU^T = (UDU^T)^T=A^T$$
+
+Since all entries of $U$ and $D$ are real, and it follows that addition and multiplication are closed over the reals, it follows that each entry of $A$ must also be real. Therefore, it must be the case that $A=A^T$ and $A \in \mathbb{R}^{n \times n}$.
+
+## Case 1: $U,D \in \mathbb{R}^{n \times n}\Leftarrow A\in \mathbb{R}^{n \times n} \text{ and } A^T=A$
+
+We already know that since $A^T=A$ that $D\in \mathbb{R}^{n \times n}$, since $D$ consists of the eigen values of $A$ and each eigen value of a Hermitian matrix is real. 
+
+We must lastly argue that $U$ is real.  To do this, let us assume that for eigen value $\lambda \in \mathbb{R}$ with associated eigen vector $\vec{x} \in \mathbb{C}^n$, that we can construct our orthogonal matrix using only real eigen vectors. 
+
+Notice that if we set up the eigen-vector identity for $A$ that the complex conjugate of $\vec{x}$ is also an eigen-vector of $A$. Since $A$ consists of real entries and $\lambda$ is also real, we can ignore the conjugate operator there.
+
+$$A\vec{x}=\lambda \vec{x} \Longleftrightarrow \bar{A\vec{x}} = \lambda \bar{\vec{x}} \Longleftrightarrow A\bar{\vec{x}} = \lambda \bar{\vec{x}}$$
+
+Note also that $\vec{x} + \bar{\vec{x}} \in \mathbb{R}^n$. This is because the entries of each consist of each index of the new vector consists of the form $a+bi + a - bi$, which clearly removes each complex component. 
+
+We can also observe that this vector will be an eigen vector: 
+
+$$A(\vec{x}+\bar{\vec{x}})=A\vec{x}+A\bar{\vec{x}}=\lambda\vec{x}+\lambda\bar{\vec{x}}=\lambda(\vec{x} +\bar{\vec{x}})$$
+Since every eigen vector of $A$ can be expressed using only real values, it follows that we can construct some $U$ using only real eigen vectors. In conclusion, $\exists U \in \mathbb{R}^{n \times n}$.
+
+In conclusion, $A^T=A$ and $A \in \mathbb{R}^{n \times n} \implies$ $U,D \in \mathbb{R}^{n \times n}$
+
+
+
+
